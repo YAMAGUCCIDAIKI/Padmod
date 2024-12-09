@@ -120,7 +120,7 @@
 	</head>
 	<body>
 		<div class="mod-menu">
-			<div class="menu-title">パズドラMod<br />Ver-1.0.0</div>
+			<div class="menu-title">パズドラMod<br />Ver-1.0.1</div>
 			<div class="menu-description">Created By Tain</div>
 
 			<button id="updateButton" onclick="updatePage()">更新</button>
@@ -395,7 +395,7 @@
 				if (!stopwatchflag) {
 					second = 0;
 					elapsedTime = 0; // リセット
-					Timer = setInterval(startcount, 5000);
+					Timer = setInterval(startcount, 1000);
 					stopwatchflag = true;
 				} else {
 					clearInterval(Timer);
