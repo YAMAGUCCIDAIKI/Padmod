@@ -120,7 +120,7 @@
 	</head>
 	<body>
 		<div class="mod-menu">
-			<div class="menu-title">パズドラMod<br />Ver-1.0.2</div>
+			<div class="menu-title">パズドラMod<br />Ver-1.0.0</div>
 			<div class="menu-description">Created By Tain</div>
 
 			<button id="updateButton" onclick="updatePage()">更新</button>
@@ -410,22 +410,16 @@
 
 				if (elapsedTime <= 5) {
 					// 最初の5秒間は1秒刻みでカウント
-					second++;
+					second = elapsedTime; // 1秒ごとに更新
 				} else {
 					// 5秒を超えたら5秒ごとにカウント
 					if (elapsedTime % 5 === 0) {
-						second += 5;
+						second = elapsedTime; // 5秒ごとに更新
 					}
 				}
 
 				// 表示を更新
 				document.getElementById("stopwatch").innerText = second;
-
-				// 最初の5秒経過後に5秒刻みでカウントを切り替え
-				if (elapsedTime === 5) {
-					clearInterval(Timer); // 1秒ごとのタイマーを止める
-					Timer = setInterval(startcount, 5000); // 5秒ごとのカウントに変更
-				}
 			}
 
 			function copyText() {
