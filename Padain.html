@@ -391,15 +391,20 @@
 			let second = 0;
 
 			function stopwatch() {
+				const stopwatchButton = document.getElementById("stopwatch");
 				if (!stopwatchflag) {
 					second = 0;
 					Timer = setInterval(startcount, 5000);
 					stopwatchflag = true;
+					// ストップウォッチがオンのとき背景色を変更
+					stopwatchButton.style.backgroundColor = "#FF6347"; // 例えば、トマト色に変更
 				} else {
 					clearInterval(Timer);
 					stopwatchflag = false;
 					document.getElementById("stopwatch").innerText =
 						"ストップウォッチ";
+					// ストップウォッチがオフのとき背景色を元に戻す
+					stopwatchButton.style.backgroundColor = "transparent"; // 元の背景色に戻す
 				}
 			}
 
