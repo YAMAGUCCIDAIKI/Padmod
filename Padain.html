@@ -187,10 +187,10 @@
 
 			// 画面の中心座標を計算
 			let centerX = (screenWidth - windowWidth) / 2;
-			let centerY = (screenHeight - windowHeight) / 2;
+			let centerY = screenHeight / 2;
 
 			// ウィンドウの位置を変更せず、サイズのみを変更して中心を設定
-			setWindowRect(centerX, centerY - 50, windowWidth, windowHeight);
+			setWindowRect(centerX, centerY, windowWidth, windowHeight);
 
 			var UserteamHP;
 			let HPAddress;
