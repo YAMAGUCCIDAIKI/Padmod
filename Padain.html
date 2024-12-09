@@ -50,7 +50,7 @@
 				margin-bottom: 5px;
 			}
 
-			.button,
+			.button:not(#stopwatch),
 			.prompt-button {
 				background-color: transparent;
 				border: 2px solid white;
@@ -65,6 +65,7 @@
 			}
 
 			.button:hover,
+			#stopwatch:hover,
 			.prompt-button:hover {
 				background-color: rgba(255, 255, 255, 0.5);
 			}
@@ -115,6 +116,10 @@
 
 			.checkbox:checked:before {
 				transform: scale(1);
+			}
+
+			#stopwatch {
+				background-color: transparent; /* 初期状態の背景色 */
 			}
 		</style>
 	</head>
