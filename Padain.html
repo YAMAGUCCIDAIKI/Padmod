@@ -50,7 +50,7 @@
 				margin-bottom: 5px;
 			}
 
-			.button:not(#stopwatch),
+			.button,
 			.prompt-button {
 				background-color: transparent;
 				border: 2px solid white;
@@ -64,20 +64,7 @@
 				transition: background-color 0.3s;
 			}
 
-			#stopwatch {
-				border: 2px solid white;
-				color: white;
-				padding: 10px;
-				width: 90%;
-				text-align: center;
-				border-radius: 5px;
-				margin-bottom: 10px;
-				cursor: pointer;
-				transition: background-color 0.3s;
-			}
-
 			.button:hover,
-			#stopwatch:hover,
 			.prompt-button:hover {
 				background-color: rgba(255, 255, 255, 0.5);
 			}
@@ -129,15 +116,11 @@
 			.checkbox:checked:before {
 				transform: scale(1);
 			}
-
-			#stopwatch {
-				background-color: transparent; /* 初期状態の背景色 */
-			}
 		</style>
 	</head>
 	<body>
 		<div class="mod-menu">
-			<div class="menu-title">パズドラMod<br />Ver-1.0.2</div>
+			<div class="menu-title">パズドラMod<br />Ver-1.0.0</div>
 			<div class="menu-description">Created By Tain</div>
 
 			<button id="updateButton" onclick="updatePage()">更新</button>
@@ -406,31 +389,33 @@
 			let stopwatchflag = false;
 			let Timer;
 			let second = 0;
+			let elapsedTime = 0; // 経過時間
 
 			function stopwatch() {
-				const stopwatchButton = document.getElementById("stopwatch");
 				if (!stopwatchflag) {
 					second = 0;
+					elapsedTime = 0; // リセット
 					Timer = setInterval(startcount, 5000);
 					stopwatchflag = true;
-					// ストップウォッチがオンのとき背景色を変更
-					stopwatchButton.style.backgroundColor = "#FF6347"; // 例えば、トマト色に変更
 				} else {
 					clearInterval(Timer);
 					stopwatchflag = false;
 					document.getElementById("stopwatch").innerText =
 						"ストップウォッチ";
-					// ストップウォッチがオフのとき背景色を元に戻す
-					stopwatchButton.style.backgroundColor = "transparent"; // 元の背景色に戻す
 				}
 			}
 
 			function startcount() {
-				second++;
-				second++;
-				second++;
-				second++;
-				second++;
+				elapsedTime++;
+				if (elapsedTime <= initialSeconds) {
+					// 最初の5秒間は1秒刻みでカウント
+					second++;
+				} else {
+					// 5秒経過後は5秒ごとにカウント
+					if (elapsedTime % 5 === 0) {
+						second += 5;
+					}
+				}
 				document.getElementById("stopwatch").innerText = second;
 			}
 
