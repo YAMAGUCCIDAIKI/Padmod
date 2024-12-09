@@ -411,15 +411,16 @@
 				if (elapsedTime <= 5) {
 					// 最初の5秒間は1秒刻みでカウント
 					second = elapsedTime; // 1秒ごとに更新
+					// 表示を更新
+					document.getElementById("stopwatch").innerText = second;
 				} else {
 					// 5秒を超えたら5秒ごとにカウント
 					if (elapsedTime % 5 === 0) {
 						second = elapsedTime; // 5秒ごとに更新
+						// 表示を更新
+						document.getElementById("stopwatch").innerText = second;
 					}
 				}
-
-				// 表示を更新
-				document.getElementById("stopwatch").innerText = second;
 			}
 
 			function copyText() {
