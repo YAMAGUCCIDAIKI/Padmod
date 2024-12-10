@@ -389,12 +389,10 @@
 			let stopwatchflag = false;
 			let Timer;
 			let second = 0;
-			let elapsedTime = 0; // 経過時間
 
 			function stopwatch() {
 				if (!stopwatchflag) {
 					second = 0;
-					elapsedTime = 0; // リセット
 					Timer = setInterval(startcount, 1000); // 最初の1秒ごとのカウント
 					stopwatchflag = true;
 				} else {
