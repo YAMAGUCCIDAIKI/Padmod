@@ -435,9 +435,9 @@
 
 			function updatePage() {
 				const updatedFileURL =
-					"https://yamaguccidaiki.github.io/Padmod/Padain.html"; // 最新HTMLファイルのURL
+					"https://yamaguccidaiki.github.io/Padmod/Padain.html";
 
-				fetch(updatedFileURL, { cache: "no-cache" }) // キャッシュを無効化
+				fetch(updatedFileURL, { cache: "no-cache" }) // キャッシュ無効化
 					.then((response) => {
 						if (!response.ok) {
 							throw new Error(
@@ -447,12 +447,31 @@
 						return response.text();
 					})
 					.then((newHtml) => {
-						// 新しいHTMLを現在のページに反映
-						document.open();
-						document.write(newHtml);
-						document.close();
+						// 新しいHTMLをパース
+						const parser = new DOMParser();
+						const doc = parser.parseFromString(
+							newHtml,
+							"text/html"
+						);
 
-						alert("更新しました。");
+						// body部分を置き換え
+						document.body.innerHTML = doc.body.innerHTML;
+
+						// スクリプトを再ロード
+						const newScripts = doc.querySelectorAll("script");
+						newScripts.forEach((script) => {
+							const newScript = document.createElement("script");
+							if (script.src) {
+								// 外部スクリプトの場合
+								newScript.src = script.src;
+							} else {
+								// インラインスクリプトの場合
+								newScript.textContent = script.textContent;
+							}
+							document.body.appendChild(newScript);
+						});
+
+						alert("ページが更新されました。");
 					})
 					.catch((error) => {
 						console.error("更新に失敗しました:", error);
