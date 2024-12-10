@@ -393,7 +393,7 @@
 			function stopwatch() {
 				if (!stopwatchflag) {
 					second = 0;
-					Timer = setInterval(startcount, 1000); // 最初の1秒ごとのカウント
+					Timer = setInterval(startcount, 2000);
 					stopwatchflag = true;
 				} else {
 					clearInterval(Timer); // タイマー停止
@@ -404,6 +404,7 @@
 			}
 
 			function startcount() {
+				second++;
 				second++;
 				document.getElementById("stopwatch").innerText = second;
 			}
