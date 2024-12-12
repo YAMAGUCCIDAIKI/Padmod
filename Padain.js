@@ -98,7 +98,7 @@ function setCheatValues(value) {
 	const cheatValues = [
 		KaihukuMezameTurn,
 		SousaTime,
-		KakuseiMukou,
+		// KakuseiMukou,
 		AttackDown,
 		Seal,
 		ComboPlus,
@@ -117,7 +117,7 @@ function setCheatValues(value) {
 		DamageMukou,
 		Chokurayami,
 		ComboDropMezame,
-		SkillHooin,
+		// SkillHooin,
 		AssistMukou,
 		ComboGensho,
 		TogeDropMezame,
