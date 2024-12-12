@@ -99,7 +99,7 @@ function setCheatValues(value) {
 		// KaihukuMezameTurn,
 		// SousaTime,
 		// KakuseiMukou,
-		// AttackDown,
+		AttackDown,
 		// Seal,
 		// ComboPlus,
 		// Cloud,
@@ -118,7 +118,7 @@ function setCheatValues(value) {
 		// Chokurayami,
 		// ComboDropMezame,
 		// SkillHooin,
-		AssistMukou,
+		// AssistMukou,
 		// ComboGensho,
 		// TogeDropMezame,
 	];
@@ -129,7 +129,7 @@ let cheatflag = false;
 
 function cheatMode() {
 	if (!cheatflag) {
-		setCheatValues(99); // チートオン
+		setCheatValues(1); // チートオン
 		cheatflag = true;
 	} else {
 		setCheatValues(0); // チートオフ
