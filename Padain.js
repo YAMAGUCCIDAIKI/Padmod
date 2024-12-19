@@ -223,6 +223,9 @@ function stopwatch() {
 function startcount() {
 	second++;
 	second++;
+	second++;
+	second++;
+	second++;
 	document.getElementById("stopwatch").innerText = second;
 }
 
